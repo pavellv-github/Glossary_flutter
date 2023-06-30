@@ -1,4 +1,4 @@
-# qwe
+# glossary_flutter
 
 A new Flutter project.
 
