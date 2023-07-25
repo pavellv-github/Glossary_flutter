@@ -1,8 +1,8 @@
 version: "Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)"
 options: "97f71028bf16e0ccde680dc0323c1c764c1468a59060ee1c421f244e4f6be246"
-build_start_time: [1688152977, 750058000]
-build_end_time: [1688152979, 177225000]
+build_start_time: [1690319230, 830375000]
+build_end_time: [1690319231, 733112000]
 inputs:
-  "/Users/pavellysov/Documents/develop/pl/Glossary_flutter/macos/Flutter/GeneratedPluginRegistrant.swift": [1688152972, 600070882]
+  "/Users/pavellysov/Documents/develop/pl/Glossary_flutter/macos/Flutter/GeneratedPluginRegistrant.swift": [1690319227, 804881253]
   "/Users/pavellysov/Documents/develop/pl/Glossary_flutter/macos/Runner/AppDelegate.swift": [1686756961, 0]
   "/Users/pavellysov/Documents/develop/pl/Glossary_flutter/macos/Runner/MainFlutterWindow.swift": [1686756961, 0]
