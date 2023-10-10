@@ -41,7 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white, child: Image.asset('assets/images/code.gif'));
+        color: Color.fromARGB(255, 255, 255, 255),
+        child: Image.asset('assets/images/code.gif'));
   }
 }
 
@@ -98,6 +99,7 @@ class ListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(title: const Text('ListTile Sample')),
+      backgroundColor: Color.fromARGB(255, 89, 89, 89),
       body: ListView(
         children: const <Widget>[
           Card(child: ListTile(title: Text('One-line ListTile'))),
@@ -164,9 +166,9 @@ class FavoritesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Избранное'),
-        backgroundColor: Color.fromARGB(255, 172, 172, 172),
+        backgroundColor: Color.fromARGB(255, 159, 159, 159),
       ),
-      // backgroundColor: const Color.fromARGB(255, 116, 116, 116),
+      backgroundColor: Color.fromARGB(255, 89, 89, 89),
       body: ListView(
         children: const <Widget>[
           Card(child: ListTile(title: Text('One-line ListTile'))),
@@ -237,6 +239,7 @@ class _NavigationExampleState extends State<NavigationExample> {
             currentPageIndex = index;
           });
         },
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
@@ -256,12 +259,12 @@ class _NavigationExampleState extends State<NavigationExample> {
       ),
       body: <Widget>[
         Container(
-          color: const Color.fromARGB(255, 255, 255, 255),
+          // color: Color.fromARGB(255, 53, 53, 53),
           alignment: Alignment.center,
           child: const ListScreen(),
         ),
         Container(
-          color: Colors.green,
+          // color: Color.fromARGB(255, 53, 53, 53),
           alignment: Alignment.center,
           child: const FavoritesScreen(),
         ),
