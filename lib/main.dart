@@ -1,279 +1,221 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FG',
+      title: 'Frontend glossary',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
-      home: const MyHomePage(),
-      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
+class HomeScreen extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SecondScreen())));
-  }
+class _HomeScreenState extends State<HomeScreen> {
+  final List<Map<String, dynamic>> testData = [
+    {
+      'topic': 'HTML',
+      'icon': Icons.html,
+      'questions': [
+        {
+          'question': 'Что такое HTML?',
+          'answer':
+              'HTML (HyperText Markup Language) - это язык разметки для создания веб-страниц.'
+        },
+        {
+          'question': 'Что такое тег в HTML?',
+          'answer':
+              'Тег - это элемент языка HTML, который определяет структуру и содержание элемента веб-страницы.'
+        },
+        {
+          'question': 'Как создать заголовок в HTML?',
+          'answer':
+              'Заголовок создается с помощью тега <h1> (для наибольшего заголовка) и закрывается с помощью </h1>.'
+        },
+        // Другие вопросы и ответы...
+      ]
+    },
+    {
+      'topic': 'CSS',
+      'icon': Icons.style,
+      'questions': [
+        {
+          'question': 'Что такое CSS?',
+          'answer':
+              'CSS (Cascading Style Sheets) - это язык стилей, используемый для стилизации веб-страниц.'
+        },
+        {
+          'question': 'Как применить CSS к HTML?',
+          'answer':
+              'CSS можно применить к HTML с помощью внешних таблиц стилей, внутренних стилей или встроенных стилей.'
+        },
+        {
+          'question': 'Как изменить цвет текста с помощью CSS?',
+          'answer':
+              'Цвет текста можно изменить с помощью свойства color, например: color: red; изменит цвет текста на красный.'
+        },
+        // Другие вопросы и ответы...
+      ]
+    },
+    {
+      'topic': 'JavaScript',
+      'icon': Icons.code,
+      'questions': [
+        {
+          'question': 'Что такое JavaScript?',
+          'answer':
+              'JavaScript - это высокоуровневый язык программирования, который применяется для создания интерактивных веб-страниц.'
+        },
+        {
+          'question': 'Как объявить переменную в JavaScript?',
+          'answer':
+              'Переменная объявляется с помощью ключевого слова var, let или const, например: var x = 5;.'
+        },
+        {
+          'question': 'Что такое оператор if в JavaScript?',
+          'answer':
+              'Оператор if используется для выполнения блока кода, если заданное условие истинно.'
+        },
+        // Другие вопросы и ответы...
+      ]
+    },
+    // Другие темы...
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Color.fromARGB(255, 255, 255, 255),
-        child: Image.asset('assets/images/code.gif'));
-  }
-}
-
-// class SecondScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       color: Colors.white,
-//       child: const Center(
-//         child: Column(
-//           children: [
-//             Text(
-//               'Test',
-//               style: TextStyle(color: Colors.black),
-//             ),
-//             Text(
-//               'Test',
-//               style: TextStyle(color: Colors.black),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class TestScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Text('js');
-//   }
-// }
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: NavigationExample());
-  }
-}
-
-class NavigationExample extends StatefulWidget {
-  const NavigationExample({super.key});
-
-  @override
-  State<NavigationExample> createState() => _NavigationExampleState();
-}
-
-class ListScreen extends StatelessWidget {
-  const ListScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(title: const Text('ListTile Sample')),
-      backgroundColor: Color.fromARGB(255, 89, 89, 89),
-      body: ListView(
-        children: const <Widget>[
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-
-          // Card(
-          //   child: ListTile(
-          //     leading: FlutterLogo(),
-          //     title: Text('One-line with leading widget'),
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     title: Text('One-line with trailing widget'),
-          //     trailing: Icon(Icons.more_vert),
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     leading: FlutterLogo(),
-          //     title: Text('One-line with both widgets'),
-          //     trailing: Icon(Icons.more_vert),
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     title: Text('One-line dense ListTile'),
-          //     dense: true,
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     leading: FlutterLogo(size: 56.0),
-          //     title: Text('Two-line ListTile'),
-          //     subtitle: Text('Here is a second line'),
-          //     trailing: Icon(Icons.more_vert),
-          //   ),
-          // ),
-          // Card(
-          // child: ListTile(
-          //   leading: FlutterLogo(size: 72.0),
-          //   title: Text('Three-line ListTile'),
-          //   subtitle:
-          //       Text('A sufficiently long subtitle warrants three lines.'),
-          //   trailing: Icon(Icons.more_vert),
-          //   isThreeLine: true,
-          // ),
-          // ),
-        ],
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Icon(Icons.search),
+              SizedBox(width: 8),
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Поиск...',
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    // Напишите функционал для обработки сброса поиска
+                  });
+                },
+                icon: Icon(Icons.clear),
+              ),
+            ],
+          ),
+          bottom: TabBar(
+            tabs: [
+              Tab(text: 'Справочник'),
+              Tab(text: 'Избранное'),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            ListView.builder(
+              itemCount: testData.length,
+              itemBuilder: (context, index) {
+                return ExpansionTile(
+                  leading: Icon(testData[index]['icon']),
+                  title: Text(testData[index]['topic']),
+                  children: (testData[index]['questions'] as List<dynamic>)
+                      .map<Widget>((qna) {
+                    return ListTile(
+                      title: Text(qna['question']),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              DetailsScreen(qna['question'], qna['answer']),
+                        ));
+                      },
+                    );
+                  }).toList(),
+                );
+              },
+            ),
+            // Добавьте вашу страницу избранного сюда
+          ],
+        ),
       ),
     );
   }
 }
 
-class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({super.key});
+class DetailsScreen extends StatelessWidget {
+  final String question;
+  final String answer;
+
+  DetailsScreen(this.question, this.answer);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Избранное'),
-        backgroundColor: Color.fromARGB(255, 159, 159, 159),
+        title: Text(question),
       ),
-      backgroundColor: Color.fromARGB(255, 89, 89, 89),
-      body: ListView(
-        children: const <Widget>[
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-          Card(child: ListTile(title: Text('One-line ListTile'))),
-
-          // Card(
-          //   child: ListTile(
-          //     leading: FlutterLogo(),
-          //     title: Text('One-line with leading widget'),
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     title: Text('One-line with trailing widget'),
-          //     trailing: Icon(Icons.more_vert),
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     leading: FlutterLogo(),
-          //     title: Text('One-line with both widgets'),
-          //     trailing: Icon(Icons.more_vert),
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     title: Text('One-line dense ListTile'),
-          //     dense: true,
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     leading: FlutterLogo(size: 56.0),
-          //     title: Text('Two-line ListTile'),
-          //     subtitle: Text('Here is a second line'),
-          //     trailing: Icon(Icons.more_vert),
-          //   ),
-          // ),
-          // Card(
-          // child: ListTile(
-          //   leading: FlutterLogo(size: 72.0),
-          //   title: Text('Three-line ListTile'),
-          //   subtitle:
-          //       Text('A sufficiently long subtitle warrants three lines.'),
-          //   trailing: Icon(Icons.more_vert),
-          //   isThreeLine: true,
-          // ),
-          // ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(answer),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritesScreen()),
+                );
+              },
+              child: Text('Добавить в избранное'),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-class _NavigationExampleState extends State<NavigationExample> {
-  int currentPageIndex = 0;
+class FavoritesScreen extends StatefulWidget {
+  @override
+  _FavoritesScreenState createState() => _FavoritesScreenState();
+}
+
+class _FavoritesScreenState extends State<FavoritesScreen> {
+  List<Map<String, String>> favorites = [];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            icon: Icon(Icons.list),
-            label: 'Список',
-          ),
-          // NavigationDestination(
-          //   icon: Icon(Icons.commute),
-          //   label: 'Commute',
-          // ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.bookmark),
-            icon: Icon(Icons.bookmark_border),
-            label: 'Избранное',
-          ),
-        ],
-      ),
-      body: <Widget>[
-        Container(
-          // color: Color.fromARGB(255, 53, 53, 53),
-          alignment: Alignment.center,
-          child: const ListScreen(),
-        ),
-        Container(
-          // color: Color.fromARGB(255, 53, 53, 53),
-          alignment: Alignment.center,
-          child: const FavoritesScreen(),
-        ),
-        // Container(
-        //   color: Colors.blue,
-        //   alignment: Alignment.center,
-        //   child: const Text('Page 3'),
-        // ),
-      ][currentPageIndex],
+    return ListView.builder(
+      itemCount: favorites.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(favorites[index]['question']!),
+          subtitle: Text(favorites[index]['answer']!),
+        );
+      },
     );
+  }
+
+  void addFavorite(String question, String answer) {
+    setState(() {
+      favorites.add({'question': question, 'answer': answer});
+    });
   }
 }
